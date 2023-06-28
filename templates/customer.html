@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Customer Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group.button-group {
+            text-align: center;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var weightInput = document.getElementById("weight");
+            var boxCountInput = document.getElementById("box_count");
+            var quantityInput = document.getElementById("quantity");
+
+            var weightValue = parseFloat(weightInput.value);
+            var boxCountValue = parseInt(boxCountInput.value);
+            var quantityValue = parseInt(quantityInput.value);
+
+            if (isNaN(weightValue)) {
+                alert("Weight must be a number.");
+                return false;
+            }
+
+            if (!Number.isInteger(boxCountValue)) {
+                alert("Box Count must be an integer.");
+                return false;
+            }
+
+            if (!Number.isInteger(quantityValue)) {
+                alert("Quantity must be an integer.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Welcome, Customer!</h1>
+
+    <div class="container">
+        <form method="POST" action="/submit" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="order_date">Order Date</label>
+                <input type="date" id="order_date" name="order_date" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Company" required>
+            </div>
+            <div class="form-group">
+                <label for="owner">Owner</label>
+                <input type="text" id="owner" name="owner" placeholder="Owner" required>
+            </div>
+            <div class="form-group">
+                <label for="item">Item</label>
+                <input type="text" id="item" name="item" placeholder="Item" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" name="quantity" placeholder="Quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <input type="number" step="0.01" id="weight" name="weight" placeholder="Weight" required>
+            </div>
+            <div class="form-group">
+                <label for="request_for_shipment">Request for Shipment</label>
+                <input type="text" id="request_for_shipment" name="request_for_shipment"
+                    placeholder="Request for Shipment" required>
+            </div>
+            <div class="form-group">
+                <label for="shipment_size">Shipment Size (L*B*H)</label>
+                <input type="text" id="shipment_size" name="shipment_size" placeholder="Shipment Size (L*B*H)" required>
+            </div>
+            <div class="form-group">
+                <label for="box_count">Box Count</label>
+                <input type="number" id="box_count" name="box_count" placeholder="Box Count" required>
+            </div>
+            <div class="form-group">
+                <label for="specification">Specification</label>
+                <input type="text" id="specification" name="specification" placeholder="Specification" required>
+            </div>
+            <div class="form-group">
+                <label for="checklist_quantity">Checklist Quantity</label>
+                <input type="number" id="checklist_quantity" name="checklist_quantity" placeholder="Checklist Quantity"
+                    required>
+            </div>
+            <div class="form-group button-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <button>
+            <a href="/logout" class="logout-link">Logout</a>
+        </button>
+    </div>
+</body>
+
+</html>

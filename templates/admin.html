@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .admin-table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class="container">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Item/Customer</th>
+                    <th>Customer 1</th>
+                    <th>Customer 2</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Quantity</td>
+                    <td>{{ customer1_quantity }}</td>
+                    <td>{{ customer2_quantity }}</td>
+                    <td>{{ total_quantity }}</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>{{ customer1_weight }}</td>
+                    <td>{{ customer2_weight }}</td>
+                    <td>{{ total_weight }}</td>
+                </tr>
+                <tr>
+                    <td>Box Count</td>
+                    <td>{{ customer1_box_count }}</td>
+                    <td>{{ customer2_box_count }}</td>
+                    <td>{{ total_box_count }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button>
+        <a href="/logout">Logout</a>
+    </button>
+</body>
+
+</html>
